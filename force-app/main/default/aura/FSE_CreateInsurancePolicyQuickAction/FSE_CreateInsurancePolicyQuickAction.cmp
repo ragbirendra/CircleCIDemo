@@ -1,0 +1,29 @@
+<!--
+- @author  Coforge POC  
+- @date    28 OCT 2022
+- @group 
+-
+- @description
+- This is use to as Quick Action on Quotes Object to Create Insurance Policy
+- @log
+- =======================================================================================
+- Date            Developer                               Description       
+- =======================================================================================
+- 28 OCT 2022     Amit Behere                            Initial Creation 
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+	<aura:html tag="style">
+        .cuf-content {
+            padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+            padding: 0rem !important;
+        }       
+        .slds-modal__content{
+            overflow-y:hidden !important;
+            height:unset !important;
+            max-height:unset !important;
+        }
+    </aura:html>
+    <c:fse_Create_Insurance_Policy oncloseQuickAction="{!c.closeAction}" recordId="{!v.recordId}"></c:fse_Create_Insurance_Policy>
+</aura:component>

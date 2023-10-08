@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable" >
+	<lightning:listView aura:id="listViewAccounts"
+    objectApiName="Account"
+    listName="My_Broker"
+    rows="20"
+    showSearchBar="true"
+    showActionBar="true"
+    enableInlineEdit="true"
+    showRowLevelActions="true"
+/>
+</aura:component>

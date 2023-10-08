@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Submission" icon-name="standard:Opportunity">
+        <div class="slds-m-around_medium">
+            <div class="c-container">
+                <lightning-layout horizontal-align={horizontalAlign}>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <lightning-input type="text" value ={data.Name}  name="Name" label="Name" onchange={getOpportunityData} required></lightning-input>
+                        <lightning-input type="checkbox" value={data.BRM_Renewal__c} label="Renewal" name="BRM_Renewal__c"></lightning-input>
+                        <lightning-input type="text" value ={data.BRM_Submission__c}  name="BRM_Submission__c" label="Submission" onchange={getOpportunityData} required></lightning-input>
+                        <lightning-input type="number" name="BRM_Premium__c" label="Premium" value={data.BRM_Premium__c} formatter="currency" step="0.01" onchange={getOpportunityData}></lightning-input>
+            
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <lightning-input type="date" value ={data.BRM_Expiration_Date__c}  name="BRM_Expiration_Date__c"  label="Current Policy Expiration Date" onchange={getOpportunityData}></lightning-input>
+                        <lightning-input type="date" value ={data.BRM_Needed_By_Date__c}  name="BRM_Needed_By_Date__c"  label="Policy Needed By Date" onchange={getOpportunityData}></lightning-input>
+                        <lightning-input type="date" value ={data.BRM_Effective_Date__c}  name="BRM_Effective_Date__c"  label="New Policy Effective Date" onchange={getOpportunityData}></lightning-input>
+                        
+                    </lightning-layout-item>
+                   
+                </lightning-layout>
+            </div>
+            <div class="c-container">
+                <lightning-layout horizontal-align={horizontalAlign}>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <lightning-record-edit-form object-api-name="Opportunity" id="getConLookup" >
+                            Agency Contact 
+                           <lightning-input-field field-name="BRM_Agency_Contact__c"  variant="label-hidden" label="Account Name" name="BRM_Agency_Contact__c" value ={data.BRM_Agency_Contact__c} onchange={getOpportunityData} required> </lightning-input-field>
+                           <span style="color:red ;">*</span>Stage 
+                           <lightning-input-field field-name="StageName"  variant="label-hidden" label="Stage" name="StageName" value ={data.StageName} onchange={getOpportunityData} required="true"> </lightning-input-field>
+                       
+                            Insurance Type 
+                           <lightning-input-field field-name="Insurance_Type__c"  variant="label-hidden" label="Insurance Type" name="Insurance_Type__c" value ={data.Insurance_Type__c} onchange={getOpportunityData} required="true"> </lightning-input-field>
+                       
+                        </lightning-record-edit-form>
+                      
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <lightning-input type="date" value ={data.CloseDate}  name="CloseDate"  label="Close Date" onchange={getOpportunityData} required></lightning-input>
+           
+                    </lightning-layout-item>
+                    
+                </lightning-layout>
+            </div>
+           
+             
+
+        </div>
+    </lightning-card>
+</template>

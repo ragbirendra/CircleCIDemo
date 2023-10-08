@@ -1,0 +1,17 @@
+<apex:page lightningStylesheets="true" standardController="Opportunity" recordSetVar="opportunities">
+  <!--<apex:includeLightning />
+    <div  id="compContainer" />
+  <script>
+     $Lightning.use("c:Broker_UploadOppApp", function() {
+         $Lightning.createComponent("c:uploadOpp",
+             {},
+             "compContainer",
+             function(cmp) {
+          console.log("c:VFPageApp loaded successfully in VF page");
+             }
+         );
+     });
+  </script>-->
+  
+  Hellooooooooooooooooooooo
+</apex:page>

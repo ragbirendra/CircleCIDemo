@@ -1,0 +1,1 @@
+@isTest(seeAllData=true) public class EasyRollup_Test_Claim { public static testmethod void test() { String query= 'select Id from Claim order by LastModifiedDate Limit 1' ; List<sobject> sourceList = Database.query(query); if(sourceList.isEmpty()) { sourceList.add(new Claim()); } upsert sourceList; }}

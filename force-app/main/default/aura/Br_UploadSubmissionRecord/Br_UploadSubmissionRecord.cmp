@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="isActive" type="Boolean" default="false"/> 
+    <div class="slds-box">
+     <lightning:button variant="brand" label="Upload CSV" onclick="{!c.handleClick }" />  
+         <aura:if isTrue="{!v.isActive}">
+             <c:uploadOpp></c:uploadOpp> 
+         </aura:if>
+     
+    </div>
+</aura:component>

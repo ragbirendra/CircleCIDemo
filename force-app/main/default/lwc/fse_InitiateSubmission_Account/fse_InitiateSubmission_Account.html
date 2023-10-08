@@ -1,0 +1,127 @@
+<template>
+    <!--Policy Holder Account START-->
+    <lightning-card title="Customer Details" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+           
+           
+                <div class="c-container">
+                    <lightning-layout horizontal-align={horizontalAlign}>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <lightning-input type="text" value ={data.Name} data-idx="policyHolderName" name="Name" label="Name" onchange={getPolicyHolderAccountData} required></lightning-input>
+                            <lightning-input type="url" value ={data.Website}  label="Enter a URL" name="Website" onchange={getPolicyHolderAccountData}></lightning-input>
+                            <lightning-input type="tel" value ={data.Phone}  name="Phone"  label="Phone" onchange={getPolicyHolderAccountData}></lightning-input>
+
+                            <lightning-input type="text" value ={data.BRM_Mobile_Phone__c}  name="BRM_Mobile_Phone__c"  label="Mobile Phone" onchange={getPolicyHolderAccountData}></lightning-input>
+                            <lightning-input type="text" value ={data.BRM_Account_Number__c} name="BRM_Account_Number__c"  label="Account Number (Business No.)" onchange={getPolicyHolderAccountData}></lightning-input>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <lightning-input type="number" value ={data.BRM_Year_In_Bus__c}  name="BRM_Year_In_Bus__c" label="Years in Bus." onchange={getPolicyHolderAccountData}></lightning-input>
+
+                            <lightning-input type="text" value ={data.Description}  name="Description" label="Description" onchange={getPolicyHolderAccountData}></lightning-input>
+                
+                          
+                            <lightning-input type="text" value ={data.Fax}  name="Fax"  label="Fax" onchange={getPolicyHolderAccountData}></lightning-input>
+                
+                            <lightning-input type="email" value ={data.BRM_Primary_Email__c}  name="BRM_Primary_Email__c"  label="Primary Email" onchange={getPolicyHolderAccountData}></lightning-input>
+                
+                           <lightning-input type="number" value ={data.BRM_Number_Of_Employee__c} name="BRM_Number_Of_Employee__c" label="Number Of Employee" onchange={getPolicyHolderAccountData}></lightning-input>
+
+
+            
+                        </lightning-layout-item>
+                        
+                    </lightning-layout>
+                </div> 
+          
+
+            
+       
+<br/>
+           
+              
+                <div class="c-container">
+                    <lightning-layout horizontal-align={horizontalAlign}>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <b>Billing Address</b>
+                            <lightning-input type="text" value ={data.BillingStreet} name="BillingStreet"  label="Billing Street" onchange={getPolicyHolderAccountData}></lightning-input>
+                            <lightning-input type="text" value ={data.BillingCity} name="BillingCity"  label="Billing City" onchange={getPolicyHolderAccountData}></lightning-input>
+                            <lightning-input type="text" value ={data.BillingState} name="BillingState"  label="Billing State" onchange={getPolicyHolderAccountData}></lightning-input>
+                            <lightning-input type="text" value ={data.BillingCountry} name="BillingCountry"  label="Billing Country" onchange={getPolicyHolderAccountData}></lightning-input>
+                            <lightning-input type="text" value ={data.BillingPostalCode} name="BillingPostalCode"  label="Billing PostalCode" onchange={getPolicyHolderAccountData}></lightning-input>
+                
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <b>Account Details</b>
+                            <lightning-record-edit-form object-api-name="Account" id="getAccountLookup" >
+                                Agency
+                                <lightning-input-field field-name="BRM_Agency__c" data-idx="BRM_Agency__c" variant="label-hidden" label="Agency" name="BRM_Agency__c" value ={data.BRM_Agency__c} onchange={getPolicyHolderAccountData} required> </lightning-input-field>
+                                Agency Contact
+                                <lightning-input-field field-name="BRM_Agency_Contact__c" data-idx="BRM_Agency_Contact__c" variant="label-hidden" label="Agency Contact" name="BRM_Agency_Contact__c"  value ={data.BRM_Agency_Contact__c} onchange={getPolicyHolderAccountData} required> </lightning-input-field>
+                            
+                                Account Source
+                                <lightning-input-field field-name="AccountSource" data-idx="AccountSource" variant="label-hidden" label="Account Source" name="AccountSource"  value ={data.AccountSource} onchange={getPolicyHolderAccountData} required> </lightning-input-field>
+                            
+                            </lightning-record-edit-form>
+                        </lightning-layout-item>
+                         
+                    </lightning-layout>
+                </div> 
+
+
+        
+
+        </div>
+    </lightning-card>
+<!--Policy Holder Account END-->
+<br/>
+<!--Agency Account START-->
+    <!--<lightning-card title="Agency Account" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            
+            <lightning-input type="text" value ={agencyAccData.Name}  name="Name" label="Account Name" onchange={getAgencyAccountData}></lightning-input>
+
+            <lightning-input type="text" value ={agencyAccData.BRM_Agency_Code__c}  name="BRM_Agency_Code__c"  label="Agency Code" onchange={getAgencyAccountData}></lightning-input>
+
+            <lightning-input type="date" value ={agencyAccData.BRM_Appointment_Date__c}  name="BRM_Appointment_Date__c"  label="Appointment Date" onchange={getAgencyAccountData}></lightning-input>
+
+
+            <lightning-input type="date" value ={agencyAccData.BRM_Termination_Date__c}  name="BRM_Termination_Date__c"  label="Termination Date" onchange={getAgencyAccountData}></lightning-input>
+
+ 
+
+            <lightning-input type="text" value ={agencyAccData.Fax}  name="Fax"  label="Fax" onchange={getAgencyAccountData}></lightning-input>
+
+            <lightning-input type="email" value ={agencyAccData.BRM_Primary_Email__c}  name="BRM_Primary_Email__c"  label="Primary Email" onchange={getAgencyAccountData}></lightning-input>
+
+
+            <lightning-record-edit-form object-api-name="Account" id="getAgencyAccountLookup" >
+                Primary Contact
+                <lightning-input-field field-name="FinServ__PrimaryContact__c" variant="label-hidden" label="Primary Contact" name="FinServ__PrimaryContact__c" value ={agencyAccData.FinServ__PrimaryContact__c} onchange={getAgencyAccountData} required> </lightning-input-field>
+                Preferred Underwriter
+                <lightning-input-field field-name="BRM_Preferred_Underwriter__c"  variant="label-hidden" label="Preferred Underwriter" name="BRM_Preferred_Underwriter__c" value ={agencyAccData.BRM_Preferred_Underwriter__c} onchange={getAgencyAccountData} required> </lightning-input-field>
+                Status 
+                <lightning-input-field field-name="FinServ__Status__c"  variant="label-hidden" label="Preferred Underwriter" name="FinServ__Status__c" value ={agencyAccData.FinServ__Status__c} onchange={getAgencyAccountData} required> </lightning-input-field>
+               
+            </lightning-record-edit-form>
+        
+            
+
+
+            <lightning-input type="number" value ={agencyAccData.BRM_Number_Of_Employee__c} name="BRM_Number_Of_Employee__c" label="Number Of Employee" onchange={getAgencyAccountData}></lightning-input>
+
+
+            <lightning-input type="text" value ={agencyAccData.BRM_Account_Number__c} name="BRM_Account_Number__c"  label="Account Number (Business No.)" onchange={getAgencyAccountData}></lightning-input>
+
+  
+            <lightning-input type="text" value ={agencyAccData.BillingStreet} name="BillingStreet"  label="Billing Street" onchange={getAgencyAccountData}></lightning-input>
+            <lightning-input type="text" value ={agencyAccData.BillingCity} name="BillingCity"  label="Billing City" onchange={getAgencyAccountData}></lightning-input>
+            <lightning-input type="text" value ={agencyAccData.BillingState} name="BillingState"  label="Billing State" onchange={getAgencyAccountData}></lightning-input>
+            <lightning-input type="text" value ={agencyAccData.BillingCountry} name="BillingCountry"  label="Billing Country" onchange={getAgencyAccountData}></lightning-input>
+            <lightning-input type="text" value ={agencyAccData.BillingPostalCode} name="BillingPostalCode"  label="Billing PostalCode" onchange={getAgencyAccountData}></lightning-input>
+
+
+        </div>
+    </lightning-card>-->
+    <!--Agency Account END-->
+</template>

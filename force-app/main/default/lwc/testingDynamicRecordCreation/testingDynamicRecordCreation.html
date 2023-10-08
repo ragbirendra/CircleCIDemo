@@ -1,0 +1,84 @@
+<template>
+    <!--Refrence Link >>> https://salesforcediaries.com/2020/06/11/adding-or-removing-rows-dynamically-in-lightning-web-component/-->
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:timesheet" alternative-text="Event" size="small"></lightning-icon>
+            &nbsp;Bulk Contact Creation
+        </h3>
+        <template for:each={itemList} for:item="item" for:index="index" >
+            <lightning-record-edit-form key={item.row_id} object-api-name="Contact">
+                 
+                <div class="slds-m-around_medium">
+                
+                    <div class="c-container">
+                        <lightning-layout horizontal-align={horizontalAlign}>
+                            <lightning-layout-item flexibility="auto" padding="around-small">
+                                <lightning-input-field field-name="FirstName" data-index={item.row_id} name="FirstName" onchange={getpolicyHolderContactData} value={item.FirstName} variant="label-stacked" required>
+                                </lightning-input-field>
+                                
+                                <lightning-input-field data-index={item.row_id} name="LastName" onchange={getpolicyHolderContactData} value={item.LastName}  field-name="LastName" variant="label-stacked" required>
+                                </lightning-input-field>
+                                <lightning-input-field data-index={item.row_id} name="Birthdate" onchange={getpolicyHolderContactData} value={item.Birthdate}  field-name="Birthdate" variant="label-stacked" required>
+                                </lightning-input-field>
+                                
+                                <lightning-input-field data-index={item.row_id} name="Title" onchange={getpolicyHolderContactData} value={item.Title}  field-name="Title" variant="label-stacked" required>
+                                </lightning-input-field>
+                                <lightning-input-field data-index={item.row_id} name="BRM_Primary_Email__c" onchange={getpolicyHolderContactData} value={item.BRM_Primary_Email__c}  field-name="BRM_Primary_Email__c" variant="label-stacked" required>
+                                </lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto" padding="around-small">
+                               
+                <lightning-input-field data-index={item.row_id} name="HomePhone" onchange={getpolicyHolderContactData} value={item.HomePhone}  field-name="HomePhone" variant="label-stacked" required>
+                </lightning-input-field>
+                <lightning-input-field data-index={item.row_id} name="BRM_Mobile_Phone__c" onchange={getpolicyHolderContactData} value={item.BRM_Mobile_Phone__c}  field-name="BRM_Mobile_Phone__c" variant="label-stacked" required>
+                </lightning-input-field>
+                <lightning-input-field data-index={item.row_id} name="Fax" onchange={getpolicyHolderContactData} value={item.Fax}  field-name="Fax" variant="label-stacked" required>
+                </lightning-input-field>
+                <lightning-input-field data-index={item.row_id} name="BRM_Multi_Role__c" onchange={getpolicyHolderContactData} value={item.BRM_Multi_Role__c}  field-name="BRM_Multi_Role__c" variant="label-stacked" required>
+                </lightning-input-field>
+                            </lightning-layout-item>
+                             
+                        </lightning-layout>
+                    </div>
+                    
+                </div>
+                 
+
+
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                        padding="around-small">
+                       <!--<div class="slds-p-top_medium">
+                          
+                        </div>-->
+                      
+                    </lightning-layout-item>
+                 
+                    <div class="slds-clearfix">
+                        <div class="slds-float_left">
+                            <lightning-icon icon-name="action:new" access-key={item.row_id} id={index}
+                            alternative-text="Add Contact" size="small" title="Add Contact" onclick={addRow}>
+                        </lightning-icon>
+                        </div>
+                        <div class="slds-float_left">
+                            <lightning-icon icon-name="action:delete" access-key={item.row_id} id={index}
+                            alternative-text="Delete Contact" size="small" title="Delete Contact" onclick={removeRow}>
+                        </lightning-icon>
+                        </div>
+                      </div>
+ 
+            </lightning-record-edit-form>
+        </template>
+        </br>
+
+
+
+
+        <lightning-layout>
+            <div class="slds-align_absolute-center">
+                <lightning-button variant="success" onclick={handleSubmit} name="submit" label="Submit">
+                </lightning-button>
+            </div>
+        </lightning-layout>
+    </lightning-card>
+  
+</template>

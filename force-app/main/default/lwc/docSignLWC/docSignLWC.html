@@ -1,0 +1,53 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-p-around_small">
+            Current Record Id in Lightning Web Component: <strong>{recordId}</strong>
+        </div>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered ">
+                <thead>
+                    <tr class="slds-m-around_medium">
+                        <th class="contact">
+                            <div class="slds-truncate" title=" Document Name">Document Name</div>
+                        </th>   
+                        <th class="Link">
+                            <div class="slds-truncate" title="Link">Link</div>
+                        </th> 
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td data-label="Document1">
+                                Document 1
+                            </td>
+                            <td data-label="Launch">
+                                <p><lightning-formatted-url value={url} label="Launch" target="_blank"></lightning-formatted-url></p>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td data-label="Document1">
+                                Document 2
+                            </td>
+                            <td data-label="Launch">
+                                <p><lightning-formatted-url value={url} label="Launch"></lightning-formatted-url></p>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td data-label="Document1">
+                                Document 3
+                            </td>
+                            <td data-label="Launch">
+                                <p><lightning-formatted-url value={url} label="Launch"></lightning-formatted-url></p>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td data-label="Document1">
+                                Document 4
+                            </td>
+                            <td data-label="Launch">
+                                <p><lightning-formatted-url value={url} label="Launch"></lightning-formatted-url></p>
+                            </td> 
+                        </tr>   
+                </tbody>
+            </table>
+    </div>
+</template>
